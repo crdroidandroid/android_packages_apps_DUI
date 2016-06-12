@@ -515,7 +515,6 @@ public class SmartBarEditor extends BaseEditor implements View.OnTouchListener {
         lp.setTitle("SmartBar Editor");
         lp.softInputMode = WindowManager.LayoutParams.SOFT_INPUT_STATE_UNCHANGED
         | WindowManager.LayoutParams.SOFT_INPUT_ADJUST_NOTHING;
-        lp.windowAnimations = com.android.internal.R.style.PowerMenuBottomAnimation;
         return lp;
     }
 
