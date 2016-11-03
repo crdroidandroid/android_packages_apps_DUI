@@ -478,16 +478,16 @@ public class SmartBarView extends BaseNavigationBar {
 
     private void updateAnimationStyle() {
         mButtonAnimationStyle = Settings.Secure.getIntForUser(getContext().getContentResolver(),
-                "smartbar_button_animation_style", SmartButtonView.ANIM_STYLE_FLIP, UserHandle.USER_CURRENT);
+                "smartbar_button_animation_style", SmartButtonView.ANIM_STYLE_RIPPLE, UserHandle.USER_CURRENT);
         ViewGroup hidden = (ViewGroup) getHiddenView().findViewWithTag(Res.Common.NAV_BUTTONS);
         for (String buttonTag : mCurrentSequence) {
             SmartButtonView v = findCurrentButton(buttonTag);
             if (v != null) {
-                v.setAnimationStyle(mScreenPinningEnabled ? SmartButtonView.ANIM_STYLE_FLIP : mButtonAnimationStyle);
+                v.setAnimationStyle(mScreenPinningEnabled ? SmartButtonView.ANIM_STYLE_RIPPLE : mButtonAnimationStyle);
             }
             v = (SmartButtonView) hidden.findViewWithTag(buttonTag);
             if (v != null) {
-                v.setAnimationStyle(mScreenPinningEnabled ? SmartButtonView.ANIM_STYLE_FLIP : mButtonAnimationStyle);
+                v.setAnimationStyle(mScreenPinningEnabled ? SmartButtonView.ANIM_STYLE_RIPPLE : mButtonAnimationStyle);
             }
         }
     }
@@ -620,7 +620,7 @@ public class SmartBarView extends BaseNavigationBar {
         v.setVisibility(View.INVISIBLE);
         setButtonDrawable(v);
         v.setContentDescription(buttonConfig.getActionConfig(ActionConfig.PRIMARY).getLabel());
-        v.setAnimationStyle(SmartButtonView.ANIM_STYLE_FLIP);
+        v.setAnimationStyle(SmartButtonView.ANIM_STYLE_RIPPLE);
         return v;
     }
 
