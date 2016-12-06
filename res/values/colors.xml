@@ -19,8 +19,8 @@
     <!-- PopupWindows -->
     <color name="smartbar_editor_popup_background">@android:color/white</color>
     <color name="smartbar_editor_popup_text">@android:color/black</color>
-    <color name="smartbar_editor_popup_icon_fill">@*android:color/material_pixel_blue_bright</color>
-    <color name="smartbar_editor_popup_horiz_separator">@*android:color/material_pixel_blue_bright</color>
+    <color name="smartbar_editor_popup_icon_fill">@*android:color/accent_material_dark</color>
+    <color name="smartbar_editor_popup_horiz_separator">@*android:color/accent_material_dark</color>
 
     <!-- SmartBar icon colors -->
     <color name="icon_color_default">@android:color/white</color>
