@@ -74,6 +74,8 @@ public class SmartButtonView extends ImageView {
     private SmartBarView mHost;
     View.OnLongClickListener mLongPressBackListener;
 
+    public static boolean arrowsMediaAction;
+
     private Spring mSpring;
     private SpringListener mSpringListener = new SpringListener() {
 
@@ -92,7 +94,7 @@ public class SmartButtonView extends ImageView {
             float scale = 1f - (value * 0.5f);
             setScaleX(scale);
             setScaleY(scale);
-        }    
+        }
     };
 
     public SmartButtonView(Context context) {
@@ -192,7 +194,13 @@ public class SmartButtonView extends ImageView {
         final boolean keyguardShowing = mHost.isKeyguardShowing();
         if (!keyguardShowing
                 || (keyguardShowing && ActionHandler.SYSTEMUI_TASK_BACK.equals(action))) {
-            ActionHandler.performTask(mContext, action);
+             if (arrowsMediaAction && ("task_ime_navigation_left".equals(action) ||
+                    "task_ime_navigation_right".equals(action))) {
+                ActionHandler.performTask(mContext, action == "task_ime_navigation_left" ?
+                        "task_media_previous" : "task_media_next");
+             } else {
+                ActionHandler.performTask(mContext, action);
+             }
         }
     }
 
