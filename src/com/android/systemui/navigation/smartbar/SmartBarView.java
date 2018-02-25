@@ -77,6 +77,8 @@ import com.android.systemui.statusbar.phone.LightBarTransitionsController;
 import com.android.systemui.statusbar.policy.KeyButtonDrawable;
 import com.android.systemui.R;
 
+import lineageos.providers.LineageSettings;
+
 import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.Set;
@@ -103,6 +105,7 @@ public class SmartBarView extends BaseNavigationBar {
         sUris.add(Settings.Secure.getUriFor(Settings.Secure.SMARTBAR_CUSTOM_ICON_SIZE));
         sUris.add(Settings.Secure.getUriFor(Settings.Secure.SMARTBAR_DOUBLETAP_SLEEP));
         sUris.add(Settings.System.getUriFor(Settings.System.NAVBAR_DYNAMIC));
+        sUris.add(LineageSettings.System.getUriFor(LineageSettings.System.BERRY_GLOBAL_STYLE));
     }
 
     private SmartObservable mObservable = new SmartObservable() {
@@ -133,6 +136,8 @@ public class SmartBarView extends BaseNavigationBar {
             } else if (uri.equals(Settings.Secure.getUriFor(Settings.Secure.SMARTBAR_DOUBLETAP_SLEEP))) {
                 updateNavDoubletapSetting();
             } else if (uri.equals(Settings.System.getUriFor(Settings.System.NAVBAR_DYNAMIC))) {
+                reapplyDarkIntensity();
+            } else if (uri.equals(LineageSettings.System.getUriFor(LineageSettings.System.BERRY_GLOBAL_STYLE))) {
                 reapplyDarkIntensity();
             }
         }
