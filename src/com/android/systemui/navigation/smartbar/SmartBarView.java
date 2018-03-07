@@ -109,6 +109,7 @@ public class SmartBarView extends BaseNavigationBar {
         sUris.add(Settings.Secure.getUriFor(Settings.Secure.SMARTBAR_DOUBLETAP_SLEEP));
         sUris.add(Settings.System.getUriFor(Settings.System.NAVBAR_DYNAMIC));
         sUris.add(LineageSettings.System.getUriFor(LineageSettings.System.BERRY_GLOBAL_STYLE));
+        sUris.add(LineageSettings.System.getUriFor(LineageSettings.System.BERRY_CURRENT_ACCENT));
     }
 
     private SmartObservable mObservable = new SmartObservable() {
@@ -141,6 +142,8 @@ public class SmartBarView extends BaseNavigationBar {
             } else if (uri.equals(Settings.System.getUriFor(Settings.System.NAVBAR_DYNAMIC))) {
                 reapplyDarkIntensity();
             } else if (uri.equals(LineageSettings.System.getUriFor(LineageSettings.System.BERRY_GLOBAL_STYLE))) {
+                reapplyDarkIntensity();
+            } else if (uri.equals(LineageSettings.System.getUriFor(LineageSettings.System.BERRY_CURRENT_ACCENT))) {
                 reapplyDarkIntensity();
             }
         }
