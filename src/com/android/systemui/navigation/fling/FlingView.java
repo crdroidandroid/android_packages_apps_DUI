@@ -82,7 +82,10 @@ public class FlingView extends BaseNavigationBar {
         sUris.add(Settings.Secure.getUriFor(Settings.Secure.FLING_TRAILS_COLOR));
         sUris.add(Settings.Secure.getUriFor(Settings.Secure.FLING_TRAILS_WIDTH));
         sUris.add(Settings.Secure.getUriFor(Settings.Secure.FLING_KEYBOARD_CURSORS));
+        sUris.add(Settings.Secure.getUriFor(Settings.Secure.FLING_LOGO_VISIBLE));
+        sUris.add(Settings.Secure.getUriFor(Settings.Secure.FLING_LOGO_ANIMATES));
         sUris.add(Settings.Secure.getUriFor(Settings.Secure.FLING_LOGO_OPACITY));
+        sUris.add(Settings.System.getUriFor(Settings.System.BERRY_DARK_CHECK));
     }
 
     private FlingActionHandler mActionHandler;
@@ -328,6 +331,7 @@ public class FlingView extends BaseNavigationBar {
             getLogoView(getCurrentView()).setAlpha(isBarPulseFaded() ? PULSE_LOGO_OPACITY : mLogoOpacity);
             getLogoView(getHiddenView()).setAlpha(isBarPulseFaded() ? PULSE_LOGO_OPACITY : mLogoOpacity);
         }
+        mBarTransitions.reapplyDarkIntensity();
     }
 
     @Override
