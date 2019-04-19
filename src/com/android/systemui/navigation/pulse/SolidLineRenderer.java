@@ -37,8 +37,8 @@ import android.os.UserHandle;
 import android.provider.Settings;
 
 import com.android.internal.util.NotificationColorUtil;
+import com.android.internal.util.crdroid.ColorAnimator;
 import com.android.systemui.navigation.pulse.PulseController.PulseObserver;
-import com.android.systemui.navigation.utils.ColorAnimator;
 
 public class SolidLineRenderer extends Renderer implements ColorAnimator.ColorAnimationListener {
     private Paint mPaint;
